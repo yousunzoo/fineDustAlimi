@@ -11,6 +11,7 @@ const getParameters = {
 const initialState = {
 	isLoading: false,
 	fineDustData: [],
+	stationArr: [],
 	errorMessage: '',
 };
 export const getDatas = createAsyncThunk('dustData/get', async (location) => {
@@ -29,6 +30,9 @@ export const dustSlice = createSlice({
 		[getDatas.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.fineDustData = action.payload;
+			state.stationArr = action.payload.map((item) => {
+				return { value: item.stationName, label: item.stationName };
+			});
 		},
 		[getDatas.rejected]: (state, action) => {
 			state.isLoading = false;
