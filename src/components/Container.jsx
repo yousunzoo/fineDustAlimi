@@ -1,21 +1,15 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { getDatas } from '../store/slice/dustSlice';
 import * as S from '../style';
+import ContentsArea from './ContentsArea';
 import SelectTab from './SelectTab';
 import SiteNavbar from './SiteNavbar';
 function Container() {
-	const { fineDustData } = useSelector((state) => state.dust);
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(getDatas());
-	}, []);
 	return (
 		<BrowserRouter>
 			<S.Container>
 				<SelectTab />
-				<div></div>
+				<ContentsArea />
 				<SiteNavbar />
 			</S.Container>
 		</BrowserRouter>

@@ -8,7 +8,7 @@ function SiteNavbar() {
 
 	return (
 		<S.SiteNavbar>
-			<S.SiteNavButton onClick={() => navigate('/my')}>
+			<S.SiteNavButton onClick={() => navigate('/')}>
 				<ImLocation />
 				<span>내 위치 보기</span>
 			</S.SiteNavButton>

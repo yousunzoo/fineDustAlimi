@@ -6,7 +6,6 @@ const getParameters = {
 	numOfRows: '100',
 	pageNo: '1',
 	ver: '1.0',
-	sidoName: '전국',
 };
 
 const initialState = {
@@ -14,10 +13,9 @@ const initialState = {
 	fineDustData: [],
 	errorMessage: '',
 };
-export const getDatas = createAsyncThunk('dustData/get', async () => {
-	const response = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', { params: getParameters });
-	console.log(response);
-	return response.data;
+export const getDatas = createAsyncThunk('dustData/get', async (location) => {
+	const response = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', { params: { ...getParameters, sidoName: location } });
+	return response.data.response.body.items;
 });
 
 export const dustSlice = createSlice({
