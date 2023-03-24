@@ -20,11 +20,11 @@ function SelectTab() {
 
 	return (
 		<S.SelectTabArea>
-			<button>
+			<S.MenuButton>
 				<GrMenu />
-			</button>
-			<Select defaultValue={sidoName[0]} options={sidoName} onChange={handleChange} />
-			<Select defaultValue={stationArr[0]} options={stationArr} />
+			</S.MenuButton>
+			<Select className='select-menu' defaultValue={sidoName[0]} options={sidoName} onChange={handleChange} />
+			<Select className='select-menu' defaultValue={stationArr[0]} options={stationArr} />
 		</S.SelectTabArea>
 	);
 }

@@ -20,30 +20,19 @@ export const SelectTabArea = styled.div`
 	padding: 0 30px;
 	box-sizing: border-box;
 	background-color: #8ac1cf;
-
-	#dropdown-basic-button {
-		width: 80px;
-		height: 30px;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: white;
-		color: black;
-		font-size: 16px;
-		margin-right: 20px;
-		.dropdown-toggle::after {
-			margin-left: 20px;
-		}
-	}
-	.dropdown:last-child #dropdown-basic-button {
-		margin-right: 0;
+	.select-menu {
+		width: 120px;
+		height: 40px;
+		margin-left: 10px;
 	}
 `;
 
-export const SelectTab = styled.select`
-	width: 120px;
-	height: 30px;
+export const MenuButton = styled.button`
+	margin-right: auto;
+	background-color: transparent;
 	border: none;
+	font-size: 24px;
+	cursor: pointer;
 `;
 
 export const SiteNavbar = styled.div`
