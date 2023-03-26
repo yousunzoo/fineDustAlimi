@@ -64,3 +64,50 @@ export const SiteNavButton = styled.a`
 		margin-bottom: 10px;
 	}
 `;
+
+export const NationCardArea = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	height: calc(100vh - 180px);
+	padding: 30px;
+	box-sizing: border-box;
+	overflow-y: scroll;
+`;
+export const NationCard = styled.div`
+	width: 360px;
+	height: 150px;
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	padding: 20px;
+	box-sizing: border-box;
+	color: white;
+`;
+
+export const GradeEmoji = styled.p`
+	font-size: 70px;
+	margin-right: 10px;
+`;
+
+export const LocationArea = styled.div`
+	width: 65%;
+	height: 60px;
+	margin-right: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	p {
+		margin: 0;
+	}
+`;
+export const Location = styled.p`
+	font-size: 18px;
+`;
+
+export const InfoArea = styled.div`
+	width: 20%;
+`;
