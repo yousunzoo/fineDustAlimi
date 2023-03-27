@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-const getParameters = {
+const commonParams = {
 	serviceKey: process.env.REACT_APP_API_KEY,
 	returnType: 'json',
 	numOfRows: '100',
@@ -11,13 +11,30 @@ const getParameters = {
 const initialState = {
 	isLoading: false,
 	fineDustData: [],
-	stationArr: [],
+	stationData: [],
 	errorMessage: '',
+	selectedStation: [],
 	favoriteStation: JSON.parse(localStorage.getItem('favoriteStation')) || [],
 };
 
-export const getDatas = createAsyncThunk('dustData/get', async (location) => {
-	const response = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', { params: { ...getParameters, sidoName: location } });
+export const getStationData = createAsyncThunk('dustData/get', async (station) => {
+	const response = await axios.get('/api/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty', {
+		params: { ...commonParams, stationName: station, dataTerm: 'DAILY' },
+	});
+	let responseData = response.data.response.body.items;
+	const data = [];
+	const categories = [];
+	if (responseData.length > 9) {
+		responseData = responseData.slice(0, 9);
+	}
+	responseData.map((item) => {
+		data.unshift(item.pm10Value);
+		categories.unshift(item.dataTime.substr(10));
+	});
+	return { name: station, data, categories };
+});
+export const getDatas = createAsyncThunk('dustDatas/get', async (location) => {
+	const response = await axios.get('/api/B552584/ArpltnInforInqireSvc/getCtprvnRltmMesureDnsty', { params: { ...commonParams, sidoName: location } });
 	return response.data.response.body.items;
 });
 
@@ -27,9 +44,11 @@ export const dustSlice = createSlice({
 	reducers: {
 		addFavorite: (state, action) => {
 			state.favoriteStation.push(action.payload);
+			localStorage.setItem('favoriteStation', JSON.stringify(state.favoriteStation));
 		},
 		removeFavorite: (state, action) => {
 			state.favoriteStation = state.favoriteStation.filter((item) => item !== action.payload);
+			localStorage.setItem('favoriteStation', JSON.stringify(state.favoriteStation));
 		},
 	},
 	extraReducers: {
@@ -46,6 +65,17 @@ export const dustSlice = createSlice({
 			});
 		},
 		[getDatas.rejected]: (state, action) => {
+			state.isLoading = false;
+			state.errorMessage = action.payload;
+		},
+		[getStationData.pending]: (state) => {
+			state.isLoading = true;
+		},
+		[getStationData.fulfilled]: (state, action) => {
+			state.isLoading = false;
+			state.stationData = action.payload;
+		},
+		[getStationData.rejected]: (state, action) => {
 			state.isLoading = false;
 			state.errorMessage = action.payload;
 		},
