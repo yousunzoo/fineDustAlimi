@@ -13,6 +13,7 @@ const initialState = {
 	fineDustData: [],
 	stationArr: [],
 	errorMessage: '',
+	favoriteStation: JSON.parse(localStorage.getItem('favoriteStation')) || [],
 };
 
 export const getDatas = createAsyncThunk('dustData/get', async (location) => {
@@ -23,7 +24,14 @@ export const getDatas = createAsyncThunk('dustData/get', async (location) => {
 export const dustSlice = createSlice({
 	name: 'dust',
 	initialState,
-	reducers: {},
+	reducers: {
+		addFavorite: (state, action) => {
+			state.favoriteStation.push(action.payload);
+		},
+		removeFavorite: (state, action) => {
+			state.favoriteStation = state.favoriteStation.filter((item) => item !== action.payload);
+		},
+	},
 	extraReducers: {
 		[getDatas.pending]: (state) => {
 			state.isLoading = true;
@@ -31,7 +39,7 @@ export const dustSlice = createSlice({
 		[getDatas.fulfilled]: (state, action) => {
 			state.isLoading = false;
 			state.fineDustData = action.payload.map((item) => {
-				return { dataTime: item.dataTime, sidoName: item.sidoName, stationName: item.stationName, pm10Value: item.pm10Value, pm10Grade: item.pm10Grade };
+				return { sidoName: item.sidoName, stationName: item.stationName, pm10Value: item.pm10Value, pm10Grade: item.pm10Grade };
 			});
 			state.stationArr = action.payload.map((item) => {
 				return { value: item.stationName, label: item.stationName };
@@ -45,3 +53,4 @@ export const dustSlice = createSlice({
 });
 
 export default dustSlice.reducer;
+export const { addFavorite, removeFavorite } = dustSlice.actions;

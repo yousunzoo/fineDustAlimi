@@ -1,7 +1,15 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 function Favorites() {
-	return <div>Favorites</div>;
+	const { favoriteStation } = useSelector((state) => state.dust);
+	return (
+		<div>
+			{favoriteStation.map((item) => (
+				<p key={item}>{item}</p>
+			))}
+		</div>
+	);
 }
 
 export default Favorites;

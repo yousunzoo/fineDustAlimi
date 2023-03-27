@@ -76,6 +76,7 @@ export const NationCardArea = styled.div`
 	overflow-y: scroll;
 `;
 export const NationCard = styled.div`
+	position: relative;
 	width: 360px;
 	height: 150px;
 	display: flex;
@@ -83,7 +84,7 @@ export const NationCard = styled.div`
 	background-color: white;
 	border-radius: 6px;
 	margin-bottom: 20px;
-	padding: 20px;
+	padding: 40px 20px;
 	box-sizing: border-box;
 	color: white;
 `;
@@ -94,22 +95,33 @@ export const GradeEmoji = styled.p`
 `;
 
 export const LocationArea = styled.div`
-	width: 65%;
+	width: 56%;
 	height: 60px;
 	margin-right: 10px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	p {
-		margin: 0;
-	}
 `;
 export const Location = styled.p`
 	font-size: 18px;
 `;
 
 export const InfoArea = styled.div`
-	width: 20%;
+	width: 30%;
+	align-self: flex-end;
+	font-size: 14px;
+	text-align: right;
+	line-height: 1.6;
+`;
+
+export const AddFavoriteButton = styled.button`
+	position: absolute;
+	top: 20px;
+	right: 24px;
+	display: block;
+	width: 30px;
+	height: 30px;
+	font-size: 30px;
 `;
 
 export const Loader = styled.div`
