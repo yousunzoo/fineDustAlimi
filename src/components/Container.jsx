@@ -11,8 +11,7 @@ function Container() {
 		<BrowserRouter>
 			<S.Container>
 				<SelectTab />
-				{/* {isLoading ? <div>Loading...</div> : } */}
-				<ContentsArea />
+				{isLoading ? <S.Loader /> : <ContentsArea />}
 				<SiteNavbar />
 			</S.Container>
 		</BrowserRouter>

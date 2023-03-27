@@ -111,3 +111,28 @@ export const Location = styled.p`
 export const InfoArea = styled.div`
 	width: 20%;
 `;
+
+export const Loader = styled.div`
+	@keyframes rotation {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
+	width: 48px;
+	height: 48px;
+	border: 5px solid;
+	border-color: #8ac0cf transparent;
+	border-radius: 50%;
+	display: inline-block;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
+`;
