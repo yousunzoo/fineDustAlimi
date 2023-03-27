@@ -9,7 +9,7 @@ import * as S from '../style';
 function SelectTab() {
 	const dispatch = useDispatch();
 	const [select, setSelect] = useState(sidoName[0].value);
-	const { stationArr, isLoading } = useSelector((state) => state.dust);
+	const { stationArr } = useSelector((state) => state.dust);
 	const [station, setStation] = useState('');
 	const handleSidoChange = (e) => {
 		setSelect(e.value);

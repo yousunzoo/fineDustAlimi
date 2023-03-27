@@ -1,6 +1,6 @@
 import React from 'react';
 import { ImStarFull, ImLocation, ImMap } from 'react-icons/im';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import * as S from '../style';
 
 function SiteNavbar() {
@@ -8,18 +8,18 @@ function SiteNavbar() {
 
 	return (
 		<S.SiteNavbar>
-			<S.SiteNavButton onClick={() => navigate('/')}>
+			<NavLink activeclassname='active' to='/'>
 				<ImLocation />
 				<span>내 위치 보기</span>
-			</S.SiteNavButton>
-			<S.SiteNavButton onClick={() => navigate('/nationwide')}>
+			</NavLink>
+			<NavLink activeclassname='active' to='/nationwide'>
 				<ImMap />
 				<span>전국 위치</span>
-			</S.SiteNavButton>
-			<S.SiteNavButton onClick={() => navigate('/favorites')}>
+			</NavLink>
+			<NavLink activeclassname='active' to='/favorites'>
 				<ImStarFull />
 				<span>즐겨찾기</span>
-			</S.SiteNavButton>
+			</NavLink>
 		</S.SiteNavbar>
 	);
 }

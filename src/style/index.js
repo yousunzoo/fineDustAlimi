@@ -45,23 +45,28 @@ export const SiteNavbar = styled.div`
 	width: 100%;
 	height: 100px;
 	background-color: white;
-`;
-
-export const SiteNavButton = styled.a`
-	width: 33%;
-	height: 70px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	text-decoration: none;
-	color: inherit;
-	cursor: pointer;
-	svg {
-		width: 24px;
-		height: 24px;
-		margin-bottom: 10px;
+	a {
+		width: 33%;
+		height: 70px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		text-decoration: none;
+		color: inherit;
+		cursor: pointer;
+		svg {
+			width: 24px;
+			height: 24px;
+			margin-bottom: 10px;
+		}
+		&:hover {
+			font-weight: 600;
+		}
+		&.active {
+			font-weight: 600;
+		}
 	}
 `;
 
