@@ -46,7 +46,6 @@ export const fineDustApi = createApi({
 					labels.unshift(item.dataTime.substr(10));
 				});
 				const now = result[0];
-				console.log(now);
 				const stationNowData = { dataTime: now.dataTime, sidoName: now.sidoName, stationName: now.stationName, pm10Value: now.pm10Value, pm10Grade: now.pm10Grade };
 				return { stationNowData, stationChartData: { data, labels } };
 			},

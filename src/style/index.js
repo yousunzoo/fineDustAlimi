@@ -114,12 +114,12 @@ export const NowArea = styled(ChartArea)`
 	box-sizing: border-box;
 	color: white;
 	.stationName {
-		width: 40%;
+		width: 44%;
 		text-align: left;
 		font-size: 40px;
 	}
 	.gradeArea {
-		width: 30%;
+		width: 28%;
 		p {
 			margin-bottom: 6px;
 			&:last-child {
@@ -129,7 +129,7 @@ export const NowArea = styled(ChartArea)`
 		}
 	}
 	.valueArea {
-		width: 30%;
+		width: 28%;
 		p {
 			margin-bottom: 6px;
 			&:last-child {

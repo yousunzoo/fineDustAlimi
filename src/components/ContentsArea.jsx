@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router';
 import Favorites from '../routes/Favorites';
 import My from '../routes/My';
