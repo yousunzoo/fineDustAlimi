@@ -1,41 +1,35 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { GrMenu } from 'react-icons/gr';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+import { useGetFineDustDataQuery } from '../api/fineDustApi';
 import { sidoName } from '../constants/sidoName';
-import { getDatas, getStationData } from '../store/slice/dustSlice';
 import * as S from '../style';
 
 function SelectTab() {
-	const dispatch = useDispatch();
+	const navigate = useNavigate();
+	const { pathname } = useLocation();
 	const [select, setSelect] = useState(sidoName[0].value);
-	const { stationArr } = useSelector((state) => state.dust);
+	const { data, isLoading } = useGetFineDustDataQuery(select);
 	const [station, setStation] = useState('');
 	const handleSidoChange = (e) => {
 		setSelect(e.value);
-		dispatch(getDatas(e.value));
 		setStation('');
+		if (pathname.includes('/nationwide')) {
+			navigate(`/nationwide/${e.value}`);
+		}
+	};
+	const handleStationChange = (e) => {
+		setStation(e);
+		navigate(`/${e.value}`);
 	};
 
-	useEffect(() => {
-		dispatch(getDatas(select));
-	}, []);
-
 	return (
-		<S.SelectTabArea>
-			<S.MenuButton>
-				<GrMenu />
-			</S.MenuButton>
-			<Select className='select-menu' defaultValue={sidoName[0]} options={sidoName} onChange={handleSidoChange} />
-			<Select
-				className='select-menu'
-				value={station}
-				options={stationArr}
-				onChange={(e) => {
-					setStation(e);
-					dispatch(getStationData(e.value));
-				}}
-			/>
+		<S.SelectTabArea
+			onChange={(e) => {
+				console.log(e);
+			}}>
+			{pathname !== '/favorites' && <Select className='select-menu' defaultValue={sidoName[0]} options={sidoName} onChange={handleSidoChange} />}
+			{!isLoading && pathname !== '/favorites' && !pathname.includes('/nationwide') && <Select className='select-menu' value={station} options={data.stationArr} onChange={handleStationChange} />}
 		</S.SelectTabArea>
 	);
 }

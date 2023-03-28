@@ -1,43 +1,35 @@
-import ApexCharts from 'react-apexcharts';
-
 import React from 'react';
+import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from 'chart.js';
+import { Line } from 'react-chartjs-2';
 
-function Chart({ stationData }) {
-	return (
-		<ApexCharts
-			series={[{ name: stationData.name, data: stationData.data }]}
-			options={{
-				chart: {
-					//차트의 툴바와 배경색을 투명으로 바꿈
-					height: 250,
-					width: 400,
-					toolbar: { show: false },
-					background: 'white', //투명
-				},
-				stroke: {
-					//선의 커브를 부드럽게 하고, 두께를 3으로 지정
-					curve: 'smooth',
-					width: 3,
-				},
-				grid: {
-					//격자 없앰
-					show: false,
-				},
-				dataLabels: {
-					enabled: true,
-				},
-				xaxis: {
-					categories: stationData.categories,
-					title: {
-						text: '9시간 동안의 미세먼지 농도',
-					},
-				},
-				yaxis: {
-					//y축의 내용 없앰
-					show: true,
-				},
-			}}></ApexCharts>
-	);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+
+export const options = {
+	responsive: true,
+	plugins: {
+		legend: {
+			position: 'top',
+		},
+		title: {
+			display: true,
+			text: '9시간 동안의 미세먼지 농도 변화',
+		},
+	},
+};
+
+function Chart({ name, stationData }) {
+	const data = {
+		labels: stationData.labels,
+		datasets: [
+			{
+				label: name,
+				data: stationData.data,
+				borderColor: 'rgb(255, 99, 132)',
+				backgroundColor: 'rgba(255, 99, 132, 0.5)',
+			},
+		],
+	};
+	return <Line options={options} data={data} />;
 }
 
 export default Chart;

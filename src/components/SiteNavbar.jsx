@@ -1,11 +1,9 @@
 import React from 'react';
 import { ImStarFull, ImLocation, ImMap } from 'react-icons/im';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import * as S from '../style';
 
 function SiteNavbar() {
-	const navigate = useNavigate();
-
 	return (
 		<S.SiteNavbar>
 			<NavLink activeclassname='active' to='/'>

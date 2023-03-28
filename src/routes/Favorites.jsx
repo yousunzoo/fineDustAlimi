@@ -1,14 +1,17 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useContext } from 'react';
+import { FavoriteContext } from '../components/Container';
+import NationCard from '../components/NationCard';
+import * as S from '../style';
 
 function Favorites() {
-	const { favoriteStation } = useSelector((state) => state.dust);
+	const { favoriteStation, handleFavorite } = useContext(FavoriteContext);
 	return (
-		<div>
-			{favoriteStation.map((item) => (
-				<p key={item}>{item}</p>
-			))}
-		</div>
+		<S.NationCardArea>
+			{favoriteStation.map((item) => {
+				const data = item.data;
+				return <NationCard key={data.stationName} item={data} favoriteStation={favoriteStation} handleFavorite={handleFavorite} />;
+			})}
+		</S.NationCardArea>
 	);
 }
 

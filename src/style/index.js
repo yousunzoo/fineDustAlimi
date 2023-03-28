@@ -76,9 +76,21 @@ export const NationCardArea = styled.div`
 	width: 100%;
 	justify-content: center;
 	height: calc(100vh - 180px);
-	padding: 30px;
+	padding: 30px 0;
 	box-sizing: border-box;
 	overflow-y: scroll;
+`;
+
+export const ChooseArea = styled(NationCardArea)`
+	flex-direction: column;
+	align-items: center;
+	padding: 30px 10px;
+	svg {
+		width: 100px;
+		height: 100px;
+		color: #767475;
+		margin-bottom: 20px;
+	}
 `;
 export const NationCard = styled.div`
 	position: relative;
