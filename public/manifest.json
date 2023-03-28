@@ -52,9 +52,14 @@
 			"src": "./icons/favicon-500x500.png",
 			"sizes": "500x500",
 			"type": "image/png"
+		},
+		{
+			"src": "./icons/favicon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
 		}
 	],
-	"start_url": ".",
+	"start_url": "/index.html",
 	"display": "standalone",
 	"theme_color": "#000000",
 	"background_color": "#ffffff"
