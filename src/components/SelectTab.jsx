@@ -26,7 +26,7 @@ function SelectTab() {
 	return (
 		<S.SelectTabArea>
 			{pathname !== '/favorites' && <Select className='select-menu' defaultValue={sidoName[0]} options={sidoName} onChange={handleSidoChange} />}
-			{!isLoading && pathname !== '/favorites' && !pathname.includes('/nationwide') && <Select className='select-menu' value={station} options={data.stationArr} onChange={handleStationChange} />}
+			{!isLoading && pathname !== '/favorites' && !pathname.includes('/nationwide') && <Select className='select-menu' value={station} options={data?.stationArr} onChange={handleStationChange} />}
 		</S.SelectTabArea>
 	);
 }
