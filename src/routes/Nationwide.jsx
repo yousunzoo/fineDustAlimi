@@ -9,12 +9,11 @@ function Nationwide() {
 	const { sidoName = '전국' } = useParams();
 	const { favoriteStation, handleFavorite } = useContext(FavoriteContext);
 	const { data, isLoading } = useGetFineDustDataQuery(sidoName);
-	const sidoData = data.sidoData;
 
 	if (isLoading) return <S.Loader />;
 	return (
 		<S.NationCardArea>
-			{sidoData.map((item) => (
+			{data.sidoData.map((item) => (
 				<NationCard item={item} key={item.stationName} favoriteStation={favoriteStation} handleFavorite={handleFavorite} />
 			))}
 		</S.NationCardArea>
