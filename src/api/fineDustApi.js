@@ -41,7 +41,7 @@ export const fineDustApi = createApi({
 				if (result.length > 9) {
 					result = result.slice(0, 9);
 				}
-				result.map((item) => {
+				result.forEach((item) => {
 					data.unshift(item.pm10Value);
 					labels.unshift(item.dataTime.substr(10));
 				});
