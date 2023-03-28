@@ -20,12 +20,7 @@ export const fineDustApi = createApi({
 			}),
 			transformResponse: (response) => {
 				const result = response.response.body.items;
-				const stationArr = result.map((item) => {
-					return { value: item.stationName, label: item.stationName };
-				});
-				const sidoData = result.map((item) => {
-					return { dataTime: item.dataTime, sidoName: item.sidoName, stationName: item.stationName, pm10Value: item.pm10Value, pm10Grade: item.pm10Grade };
-				});
+
 				return { stationArr, sidoData };
 			},
 		}),
