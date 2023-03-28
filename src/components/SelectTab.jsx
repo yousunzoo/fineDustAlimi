@@ -11,11 +11,6 @@ function SelectTab() {
 	const [select, setSelect] = useState(sidoName[0].value);
 	const { data, isLoading } = useGetFineDustDataQuery(select);
 	const [station, setStation] = useState('');
-	const result = data.response.body.items;
-	const stationArr = result.map((item) => {
-		return { value: item.stationName, label: item.stationName };
-	});
-
 	const handleSidoChange = (e) => {
 		setSelect(e.value);
 		setStation('');
@@ -31,7 +26,7 @@ function SelectTab() {
 	return (
 		<S.SelectTabArea>
 			{pathname !== '/favorites' && <Select className='select-menu' defaultValue={sidoName[0]} options={sidoName} onChange={handleSidoChange} />}
-			{!isLoading && pathname !== '/favorites' && !pathname.includes('/nationwide') && <Select className='select-menu' value={station} options={stationArr} onChange={handleStationChange} />}
+			{!isLoading && pathname !== '/favorites' && !pathname.includes('/nationwide') && <Select className='select-menu' value={station} options={data?.stationArr} onChange={handleStationChange} />}
 		</S.SelectTabArea>
 	);
 }
