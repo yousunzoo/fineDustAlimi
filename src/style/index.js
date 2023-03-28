@@ -62,10 +62,11 @@ export const SiteNavbar = styled.div`
 			margin-bottom: 10px;
 		}
 		&:hover {
-			font-weight: 600;
+			font-weight: 700;
 		}
 		&.active {
-			font-weight: 600;
+			font-weight: 700;
+			color: blue;
 		}
 	}
 `;
@@ -84,7 +85,7 @@ export const NationCardArea = styled.div`
 export const ChooseArea = styled(NationCardArea)`
 	flex-direction: column;
 	align-items: center;
-	padding: 30px 10px;
+	padding: 30px 20px;
 	svg {
 		width: 100px;
 		height: 100px;
@@ -92,23 +93,79 @@ export const ChooseArea = styled(NationCardArea)`
 		margin-bottom: 20px;
 	}
 `;
+export const ChartArea = styled.div`
+	background-color: #fff;
+	border-radius: 10px;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: center;
+`;
+
+export const NowArea = styled(ChartArea)`
+	margin-bottom: 20px;
+	position: relative;
+	display: flex;
+	align-items: center;
+	background-color: ${({ background }) => background};
+	height: 160px;
+	padding: 0 30px;
+	padding-top: 30px;
+	box-sizing: border-box;
+	color: white;
+	.stationName {
+		width: 40%;
+		text-align: left;
+		font-size: 40px;
+	}
+	.gradeArea {
+		width: 30%;
+		p {
+			margin-bottom: 6px;
+			&:last-child {
+				margin-bottom: 0;
+				font-weight: 700;
+			}
+		}
+	}
+	.valueArea {
+		width: 30%;
+		p {
+			margin-bottom: 6px;
+			&:last-child {
+				margin-bottom: 0;
+				font-weight: 700;
+			}
+		}
+	}
+`;
+
 export const NationCard = styled.div`
 	position: relative;
 	width: 360px;
 	height: 150px;
 	display: flex;
-	align-items: center;
-	background-color: white;
+	align-items: flex-end;
+	background-color: ${({ background }) => background};
 	border-radius: 6px;
 	margin-bottom: 20px;
-	padding: 40px 20px;
+	padding: 30px 20px;
 	box-sizing: border-box;
 	color: white;
+	.grade {
+		font-size: 20px;
+		font-weight: 700;
+	}
 `;
 
+export const UpdateTime = styled.p`
+	position: absolute;
+	top: 20px;
+	left: 20px;
+`;
 export const GradeEmoji = styled.p`
-	font-size: 70px;
-	margin-right: 10px;
+	font-size: 60px;
+	margin-right: 14px;
 `;
 
 export const LocationArea = styled.div`
@@ -121,6 +178,10 @@ export const LocationArea = styled.div`
 `;
 export const Location = styled.p`
 	font-size: 18px;
+	.sidoName {
+		font-size: 14px;
+		margin-left: 6px;
+	}
 `;
 
 export const InfoArea = styled.div`

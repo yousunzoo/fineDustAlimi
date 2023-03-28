@@ -13,19 +13,21 @@ function NationCard({ item, favoriteStation, handleFavorite }) {
 	};
 
 	return (
-		<S.NationCard style={{ backgroundColor }}>
+		<S.NationCard background={backgroundColor}>
 			<S.GradeEmoji>{emoji}</S.GradeEmoji>
 			<S.LocationArea>
 				<S.Location>
-					{item.stationName}({item.sidoName})
+					{item.stationName}
+					<span className='sidoName'>({item.sidoName})</span>
 				</S.Location>
-				<p>{grade}</p>
+				<p className='grade'>{grade}</p>
 			</S.LocationArea>
-			<S.AddFavoriteButton onClick={onClick}>{isFavoriteNation ? <BsFillBookmarkStarFill /> : <BsBookmark />}</S.AddFavoriteButton>
 			<S.InfoArea>
 				<p>미세먼지 농도</p>
 				<p>{item.pm10Value}μg/m3</p>
 			</S.InfoArea>
+			<S.AddFavoriteButton onClick={onClick}>{isFavoriteNation ? <BsFillBookmarkStarFill /> : <BsBookmark />}</S.AddFavoriteButton>
+			<S.UpdateTime>{item.dataTime}</S.UpdateTime>
 		</S.NationCard>
 	);
 }

@@ -7,10 +7,11 @@ import SelectTab from './SelectTab';
 import SiteNavbar from './SiteNavbar';
 
 export const FavoriteContext = createContext();
+
 function Container() {
 	const { isLoading } = useGetFineDustDataQuery('전국');
-	const [favoriteStation, setFavoriteStation] = useState(JSON.parse(localStorage.getItem('favorites')) || []);
-
+	const [favoriteStation, setFavoriteStation] = useState(JSON.parse(localStorage.getItem('favoriteStation')) || []);
+	console.log(favoriteStation);
 	const handleFavorite = ({ item, isFavoriteNation }) => {
 		if (isFavoriteNation) {
 			const newArr = favoriteStation.filter((station) => station.id !== item.stationName);

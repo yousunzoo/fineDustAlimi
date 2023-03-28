@@ -24,7 +24,7 @@ export const fineDustApi = createApi({
 					return { value: item.stationName, label: item.stationName };
 				});
 				const sidoData = result.map((item) => {
-					return { sidoName: item.sidoName, stationName: item.stationName, pm10Value: item.pm10Value, pm10Grade: item.pm10Grade };
+					return { dataTime: item.dataTime, sidoName: item.sidoName, stationName: item.stationName, pm10Value: item.pm10Value, pm10Grade: item.pm10Grade };
 				});
 				return { stationArr, sidoData };
 			},
@@ -45,7 +45,10 @@ export const fineDustApi = createApi({
 					data.unshift(item.pm10Value);
 					labels.unshift(item.dataTime.substr(10));
 				});
-				return { data, labels };
+				const now = result[0];
+				console.log(now);
+				const stationNowData = { dataTime: now.dataTime, sidoName: now.sidoName, stationName: now.stationName, pm10Value: now.pm10Value, pm10Grade: now.pm10Grade };
+				return { stationNowData, stationChartData: { data, labels } };
 			},
 		}),
 	}),
