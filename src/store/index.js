@@ -1,13 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import { createLogger } from 'redux-logger';
-import { locationSlice } from './slices/locationSlice';
 
 const logger = createLogger();
 
-const rootReducer = combineReducers({
-	[locationSlice.name]: locationSlice.reducer,
-});
+const rootReducer = combineReducers({});
 
 const store = configureStore({
 	reducer: rootReducer,

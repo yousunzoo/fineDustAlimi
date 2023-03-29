@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import * as S from '../styles/My';
 import { TbLocation } from 'react-icons/tb';
 import { GeolocationContext } from './common/Layout';
