@@ -20,11 +20,11 @@ export const TabsWrapper = styled.nav`
 		background-color: #fff;
 		transition: all 0.2s ease-in;
 		&:hover {
-			transform: translateY(-20px);
+			transform: translateY(-10px);
 			box-shadow: 0px -2px 6px -2px gray;
 		}
 		&.active {
-			transform: translateY(-20px);
+			transform: translateY(-10px);
 			box-shadow: 0px -2px 6px -2px gray;
 		}
 	}
