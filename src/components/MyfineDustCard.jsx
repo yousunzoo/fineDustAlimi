@@ -1,15 +1,15 @@
 import React from 'react';
 import * as S from '../styles/My';
 import gradeData from '../constants/gradeData.json';
-import useMyWeatherQuery from '../hooks/useMyWeatherQuery';
+import useQuerywithLocalStorage from '../hooks/useQuerywithLocalStorage';
 import Loader from './common/Loader';
+import { useGetWeatherQuery } from '../store/apis/weatherApi';
 
 function MyfineDustCard({ fineDustData }) {
-	const pm10grade = fineDustData?.pm10Grade || 'null';
-	const pm25grade = fineDustData?.pm25Grade || 'null';
+	const pm10grade = fineDustData.pm10Grade;
+	const pm25grade = fineDustData.pm25Grade;
 
-	const { data: weatherData, isLoading, isFetching } = useMyWeatherQuery();
-	console.log(weatherData);
+	const { data: weatherData, isLoading, isFetching } = useQuerywithLocalStorage(useGetWeatherQuery, 'geolocation');
 
 	if (isLoading || isFetching || !fineDustData) return <Loader />;
 

@@ -22,12 +22,22 @@ export const fineDustApi = createApi({
 					params: { ...commonParams, stationName, dataTerm: 'DAILY' },
 				};
 			},
+			transformResponse: (responseData) => {
+				return responseData['response']['body'];
+			},
+		}),
+		getSidoData: builder.query({
+			query: (sidoName) => {
+				return {
+					url: '/getCtprvnRltmMesureDnsty',
+					params: { ...commonParams, sidoName },
+				};
+			},
 			transformResponse: (response) => {
-				const result = response.response.body.items[0];
-				return result;
+				return response.response.body;
 			},
 		}),
 	}),
 });
 
-export const { useGetStationDataQuery } = fineDustApi;
+export const { useGetStationDataQuery, useGetSidoDataQuery } = fineDustApi;

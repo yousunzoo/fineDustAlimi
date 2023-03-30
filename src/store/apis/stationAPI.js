@@ -18,8 +18,8 @@ export const stationApi = createApi({
 					params: { ...commonParams, umdName: location },
 				};
 			},
-			transformResponse: (response) => {
-				const result = response.response.body.items[0];
+			transformResponse: (responseData) => {
+				const result = responseData['response']['body']['items'][0];
 				const coordinate = { tmX: result.tmX, tmY: result.tmY };
 				localStorage.setItem('coordinate', JSON.stringify(coordinate));
 				return coordinate;
@@ -27,14 +27,15 @@ export const stationApi = createApi({
 		}),
 		getStationName: builder.query({
 			query: (coordinate) => {
-				const { tmX, tmY } = coordinate;
+				const tmX = coordinate['tmX'];
+				const tmY = coordinate['tmY'];
 				return {
 					url: '/getNearbyMsrstnList',
 					params: { ...commonParams, tmX, tmY },
 				};
 			},
-			transformResponse: (response) => {
-				const result = response.response.body.items[0].stationName;
+			transformResponse: (responseData) => {
+				const result = responseData['response']['body']['items'][0]['stationName'];
 				localStorage.setItem('stationName', JSON.stringify(result));
 				return result;
 			},

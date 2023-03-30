@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Layout from '../components/common/Layout';
 import Home from '../pages/Home';
+import Search from '../pages/Search';
 
 function Router() {
 	return (
@@ -9,7 +10,7 @@ function Router() {
 			<Routes>
 				<Route path='/' element={<Layout />}>
 					<Route path='/' element={<Home />} />
-					<Route path='/search' />
+					<Route path='/search' element={<Search />} />
 					<Route path='/all' />
 					<Route path='/favorites' />
 				</Route>

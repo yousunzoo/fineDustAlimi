@@ -12,7 +12,7 @@ export const MyCard = styled.div`
 export const MyLocation = styled.div`
 	width: 100%;
 	padding: 0 10px;
-	height: 60px;
+	height: 55px;
 	display: flex;
 	align-items: center;
 	font-size: 16px;
