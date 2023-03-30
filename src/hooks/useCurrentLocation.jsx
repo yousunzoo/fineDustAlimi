@@ -1,5 +1,6 @@
+/* global kakao */
 import { useState, useEffect } from 'react';
-import { flushSync } from 'react-dom';
+const { kakao } = window;
 
 const useCurrentLocation = () => {
 	// location 정보 저장
@@ -11,11 +12,16 @@ const useCurrentLocation = () => {
 	// Geolocation의 `getCurrentPosition` 메소드에 대한 성공 callback 핸들러
 	const handleSuccess = (pos) => {
 		const { latitude, longitude } = pos.coords;
+		const geocoder = new kakao.maps.services.Geocoder();
 
-		setLocation({
-			latitude,
-			longitude,
-		});
+		const coord = new kakao.maps.LatLng(latitude, longitude);
+		const callback = function (result, status) {
+			if (status === kakao.maps.services.Status.OK) {
+				setLocation(result[0].address.region_1depth_name + ' ' + result[0].address.region_2depth_name + ' ' + result[0].address.region_3depth_name);
+			}
+		};
+
+		geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
 		setIsLoading(false);
 	};
 

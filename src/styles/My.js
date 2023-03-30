@@ -15,4 +15,18 @@ export const MyLocation = styled.div`
 	display: flex;
 	align-items: center;
 	font-size: 16px;
+	.nowLocation {
+		margin-left: 15px;
+		position: relative;
+		&::after {
+			position: absolute;
+			top: 0;
+			left: -8px;
+			display: block;
+			content: '';
+			width: 1px;
+			height: 100%;
+			background-color: #3e3e3e;
+		}
+	}
 `;
