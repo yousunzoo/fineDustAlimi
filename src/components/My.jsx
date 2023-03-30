@@ -6,8 +6,7 @@ import { useGetWeatherQuery } from '../store/apis/weatherApi';
 
 function My() {
 	const { currentLocation } = useContext(GeolocationContext);
-	// const data = useGetWeatherQuery(currentLocation);
-	// console.log(data);
+
 	return (
 		<S.MyCard>
 			<S.MyLocation>
