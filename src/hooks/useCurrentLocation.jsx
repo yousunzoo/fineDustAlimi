@@ -4,9 +4,9 @@ const { kakao } = window;
 
 const useCurrentLocation = () => {
 	// location 정보 저장
-	const [location, setLocation] = useState();
+	const [location, setLocation] = useState({ myLocation: '', stationName: '' });
 	// 에러 메세지 저장
-	const [error, setError] = useState();
+	const [error, setError] = useState(null);
 	const [isLoading, setIsLoading] = useState(true);
 
 	// Geolocation의 `getCurrentPosition` 메소드에 대한 성공 callback 핸들러
@@ -18,8 +18,9 @@ const useCurrentLocation = () => {
 		const callback = function (result, status) {
 			if (status === kakao.maps.services.Status.OK) {
 				const myLocation = result[0].address.region_1depth_name + ' ' + result[0].address.region_2depth_name + ' ' + result[0].address.region_3depth_name;
-				setLocation(myLocation);
-				localStorage.setItem('myLocation', JSON.stringify(myLocation));
+				const stationName = result[0].address.region_3depth_name;
+				setLocation({ myLocation, stationName });
+				localStorage.setItem('myLocation', JSON.stringify({ myLocation, stationName }));
 			}
 		};
 

@@ -6,6 +6,7 @@ export const MyCard = styled.div`
 	height: 500px;
 	background-color: white;
 	border-radius: 20px;
+	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
 
 export const MyLocation = styled.div`
@@ -27,6 +28,71 @@ export const MyLocation = styled.div`
 			width: 1px;
 			height: 100%;
 			background-color: #3e3e3e;
+		}
+	}
+`;
+
+export const FineDustCard = styled.div`
+	width: 100%;
+	height: 400px;
+	padding: 20px;
+	background-color: ${({ style }) => style.background};
+	color: ${({ style }) => style.color};
+
+	.emoji {
+		display: block;
+		margin: auto;
+		width: 150px;
+		height: 150px;
+		opacity: 0.9;
+		margin-bottom: 20px;
+	}
+	.pm10grade {
+		text-align: center;
+		font-size: 40px;
+		color: ${({ style }) => style.color};
+		font-weight: 600;
+		margin-bottom: 10px;
+	}
+	.dataArea {
+		display: flex;
+		width: 100%;
+		.dataContainer {
+			width: 50%;
+			text-align: center;
+			.dataTitle {
+				margin-bottom: 10px;
+			}
+			.dataContents {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.grade {
+					font-size: 18px;
+					margin-right: 10px;
+					color: ${({ style }) => style.color};
+				}
+				.value {
+					font-size: 14px;
+					padding: 4px 6px;
+					background-color: ${({ style }) => style.color};
+					border-radius: 6px;
+					color: white;
+					span {
+						font-weight: 700;
+						color: inherit;
+					}
+				}
+			}
+
+			&.pm25 {
+				.grade {
+					color: ${({ pm25color }) => pm25color};
+				}
+				.value {
+					background-color: ${({ pm25color }) => pm25color};
+				}
+			}
 		}
 	}
 `;

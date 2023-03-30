@@ -1,0 +1,8 @@
+{
+	"1": { "style": { "background": "#c1e7f6", "color": "#37bdee" }, "text": "좋음", "image": "/icons/grade1.png" },
+	"2": { "style": { "background": "#f0feee", "color": "#3ac728" }, "text": "보통", "image": "/icons/grade2.png" },
+	"3": { "style": { "background": "#f7e9be", "color": "#fbc12b" }, "text": "한때나쁨", "image": "/icons/grade3.png" },
+	"4": { "style": { "background": "#ffede7", "color": "#fa6329" }, "text": "나쁨", "image": "/icons/grade4.png" },
+	"5": { "style": { "background": "#c18a96", "color": "#993146" }, "text": "매우나쁨", "image": "/icons/grade5.png" },
+	"null": { "style": { "background": "#e8e1ea", "color": "#3c204c" }, "text": "알수없음", "image": "/icons/default.png" }
+}
