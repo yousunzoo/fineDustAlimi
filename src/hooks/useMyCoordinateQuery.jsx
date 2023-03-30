@@ -9,7 +9,6 @@ function useMyCoordinateQuery(myStationName) {
 	useEffect(() => {
 		if (!localStorage.getItem('stationName')) {
 			refetch();
-		} else {
 		}
 	}, [refetch]);
 	const cachedData = JSON.parse(localStorage.getItem('stationName'));

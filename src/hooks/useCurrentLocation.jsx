@@ -13,14 +13,15 @@ const useCurrentLocation = () => {
 	const handleSuccess = (pos) => {
 		const { latitude, longitude } = pos.coords;
 		const geocoder = new kakao.maps.services.Geocoder();
-
 		const coord = new kakao.maps.LatLng(latitude, longitude);
+
 		const callback = function (result, status) {
 			if (status === kakao.maps.services.Status.OK) {
 				const myLocation = result[0].address.region_1depth_name + ' ' + result[0].address.region_2depth_name + ' ' + result[0].address.region_3depth_name;
 				const stationName = result[0].address.region_3depth_name;
 				setLocation({ myLocation, stationName });
 				localStorage.setItem('myLocation', JSON.stringify({ myLocation, stationName }));
+				localStorage.setItem('geolocation', JSON.stringify({ latitude, longitude }));
 			}
 		};
 

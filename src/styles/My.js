@@ -35,24 +35,44 @@ export const MyLocation = styled.div`
 export const FineDustCard = styled.div`
 	width: 100%;
 	height: 400px;
-	padding: 20px;
+	position: relative;
+	padding: 0 10px;
 	background-color: ${({ style }) => style.background};
 	color: ${({ style }) => style.color};
-
+	.updateTime {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		margin-bottom: 10px;
+		font-size: 14px;
+		color: #505050;
+	}
+	.weather {
+		display: flex;
+		align-items: center;
+		margin-bottom: 20px;
+		.weatherIcon {
+			width: 60px;
+			height: 60px;
+		}
+		.temperature {
+			font-size: 20px;
+		}
+	}
 	.emoji {
 		display: block;
 		margin: auto;
 		width: 150px;
 		height: 150px;
 		opacity: 0.9;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 	}
 	.pm10grade {
 		text-align: center;
 		font-size: 40px;
 		color: ${({ style }) => style.color};
 		font-weight: 600;
-		margin-bottom: 10px;
+		margin-bottom: 20px;
 	}
 	.dataArea {
 		display: flex;
