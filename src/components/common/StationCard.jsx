@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import * as S from '../../styles/Card';
 import gradeData from '../../constants/gradeData.json';
 import { FiMapPin } from 'react-icons/fi';
+import { BsChatHeart } from 'react-icons/bs';
 
 function StationCard() {
 	const { stationData } = useSelector((state) => state.fineDust);
@@ -22,6 +23,9 @@ function StationCard() {
 				</p>
 			</S.MyLocation>
 			<S.FineDustCard className='stationCard' style={gradeData[pm10grade].style} pm25color={gradeData[pm25grade].style.color}>
+				<button className='bookmark'>
+					<BsChatHeart />
+				</button>
 				<img className='emoji' src={gradeData[pm10grade].image} />
 				<p className='pm10grade'>{gradeData[pm10grade].text}</p>
 				<div className='dataArea'>

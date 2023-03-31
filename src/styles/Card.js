@@ -16,7 +16,7 @@ export const MyCard = styled.div`
 		}
 		.updateTime {
 			position: absolute;
-			bottom: 10px;
+			bottom: 15px;
 			right: 20px;
 		}
 	}
@@ -57,6 +57,15 @@ export const FineDustCard = styled.div`
 	padding: 0 10px;
 	background-color: ${({ style }) => style.background};
 	color: ${({ style }) => style.color};
+	.bookmark {
+		position: absolute;
+		top: 20px;
+		right: 30px;
+		font-size: 60px;
+		path {
+			color: #403f3d;
+		}
+	}
 	.updateTime {
 		position: absolute;
 		top: 20px;
