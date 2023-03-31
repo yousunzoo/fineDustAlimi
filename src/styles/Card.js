@@ -68,15 +68,15 @@ export const FineDustCard = styled.div`
 	}
 	.updateTime {
 		position: absolute;
-		top: 20px;
+		bottom: -45px;
 		right: 20px;
 		margin-bottom: 10px;
-		font-size: 14px;
 		color: #505050;
 	}
 	.weather {
 		display: flex;
 		align-items: center;
+		margin-top: 10px;
 		margin-bottom: 20px;
 		.weatherIcon {
 			width: 60px;

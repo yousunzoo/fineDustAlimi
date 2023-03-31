@@ -9,6 +9,10 @@ export const SelectContainer = styled.div`
 		width: 48%;
 		height: 40px;
 	}
+	.allSelect {
+		width: 100%;
+		text-align: center;
+	}
 `;
 
 export const MessageContainer = styled.div`
