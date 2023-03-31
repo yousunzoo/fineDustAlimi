@@ -4,12 +4,14 @@ import { createLogger } from 'redux-logger';
 import { weatherApi } from './apis/weatherApi';
 import { stationApi } from './apis/stationApi';
 import { fineDustApi } from './apis/fineDustApi';
+import fineDustReducer from './slices/fineDustSlice';
 const logger = createLogger();
 
 const rootReducer = combineReducers({
 	[fineDustApi.reducerPath]: fineDustApi.reducer,
 	[weatherApi.reducerPath]: weatherApi.reducer,
 	[stationApi.reducerPath]: stationApi.reducer,
+	fineDust: fineDustReducer,
 });
 
 const store = configureStore({

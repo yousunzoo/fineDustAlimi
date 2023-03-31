@@ -1,12 +1,25 @@
 import styled from 'styled-components';
 
 export const MyCard = styled.div`
+	position: relative;
 	width: 90%;
 	margin: auto;
 	height: 500px;
 	background-color: white;
 	border-radius: 20px;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+	&.stationCard {
+		height: 420px;
+		margin-top: 50px;
+		.stationName {
+			font-size: 20px;
+		}
+		.updateTime {
+			position: absolute;
+			bottom: 10px;
+			right: 20px;
+		}
+	}
 `;
 
 export const MyLocation = styled.div`
@@ -35,7 +48,12 @@ export const MyLocation = styled.div`
 export const FineDustCard = styled.div`
 	width: 100%;
 	height: 400px;
-	position: relative;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin: auto;
 	padding: 0 10px;
 	background-color: ${({ style }) => style.background};
 	color: ${({ style }) => style.color};
@@ -61,7 +79,7 @@ export const FineDustCard = styled.div`
 	}
 	.emoji {
 		display: block;
-		margin: auto;
+		margin: 0 auto;
 		width: 150px;
 		height: 150px;
 		opacity: 0.9;
@@ -113,6 +131,15 @@ export const FineDustCard = styled.div`
 					background-color: ${({ pm25color }) => pm25color};
 				}
 			}
+		}
+	}
+	&.stationCard {
+		height: 320px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		.emoji {
+			margin-bottom: 20px;
 		}
 	}
 `;

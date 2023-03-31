@@ -10,3 +10,22 @@ export const SelectContainer = styled.div`
 		height: 40px;
 	}
 `;
+
+export const MessageContainer = styled.div`
+	position: absolute;
+	width: 300px;
+	height: 200px;
+	top: 160px;
+	right: 0;
+	left: 0;
+	margin: auto;
+	text-align: center;
+	img {
+		width: 200px;
+		height: 200px;
+		margin-bottom: 20px;
+	}
+	p {
+		font-size: 20px;
+	}
+`;

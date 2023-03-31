@@ -1,5 +1,5 @@
 import React from 'react';
-import * as S from '../styles/My';
+import * as S from '../styles/Card';
 import gradeData from '../constants/gradeData.json';
 import useQuerywithLocalStorage from '../hooks/useQuerywithLocalStorage';
 import Loader from './common/Loader';

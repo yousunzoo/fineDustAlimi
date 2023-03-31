@@ -1,11 +1,9 @@
 import React, { useContext, useEffect } from 'react';
-import * as S from '../styles/My';
+import * as S from '../styles/Card';
 import { TbLocation } from 'react-icons/tb';
 import { GeolocationContext } from './common/Layout';
 import MyfineDustCard from './MyfineDustCard';
 import Loader from './common/Loader';
-import { useGetCoordinateQuery, useGetStationNameQuery } from '../store/apis/stationApi';
-import useQuerywithLocalStorage from '../hooks/useQuerywithLocalStorage';
 import useMyCoordinateQuery from '../hooks/useMyCoordinateQuery';
 
 function My() {
