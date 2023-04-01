@@ -25,6 +25,7 @@ export const Card = styled(motion.div)`
 	margin-bottom: 20px;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 	background-color: ${({ theme }) => theme.grade10.background};
+	cursor: pointer;
 	.infoWrapper {
 		display: flex;
 		align-items: flex-end;
