@@ -6,12 +6,12 @@ import { useGetSidoDataQuery } from '../store/apis/fineDustApi';
 import { sidoData } from '../constants/sidoData';
 import Message from '../components/Message';
 import StationCard from '../components/common/StationCard';
-import { useDispatch } from 'react-redux';
-import { getSido, getStation } from '../store/slices/fineDustSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSido, setStation } from '../store/slices/fineDustSlice';
 
 function Search() {
 	const [sidoName, setSidoName] = useState(sidoData[0].value);
-	const [stationData, setStationData] = useState([]);
+	const [stationArr, setStationArr] = useState([]);
 	const { data, isLoading, isFetching } = useGetSidoDataQuery(sidoName);
 	const [stationName, setStationName] = useState('');
 	const dispatch = useDispatch();
@@ -21,11 +21,11 @@ function Search() {
 		if (findSido.length > 0) {
 			setSidoName(e.value);
 			setStationName('');
-			setStationData([]);
+			setStationArr([]);
 			return;
 		}
 		setStationName(e);
-		dispatch(getStation(e.value));
+		dispatch(setStation(e.value));
 	};
 
 	useEffect(() => {
@@ -33,7 +33,7 @@ function Search() {
 			const newArr = data['items'].map((item) => {
 				return { value: item.stationName, label: item.stationName };
 			});
-			setStationData(newArr);
+			setStationArr(newArr);
 			dispatch(getSido(data['items']));
 		}
 	}, [data]);
@@ -42,9 +42,9 @@ function Search() {
 		<>
 			<S.SelectContainer>
 				<Select className='select' defaultValue={sidoData[0]} options={sidoData} onChange={handleSelect} />
-				<Select className='select' value={stationName} options={stationData} onChange={handleSelect} />
+				<Select className='select' value={stationName} options={stationArr} onChange={handleSelect} />
 			</S.SelectContainer>
-			{isLoading || isFetching ? <Loader /> : !stationName ? <Message /> : <StationCard stationName={stationName['value']} />}
+			{isLoading || isFetching ? <Loader /> : !stationName ? <Message /> : <StationCard />}
 		</>
 	);
 }

@@ -1,18 +1,23 @@
 import React, { useContext } from 'react';
 import * as S from '../styles/All';
 import gradeData from '../constants/gradeData.json';
-import { SelectedIdContext } from './CardsContainer';
+import { SelectedIdContext } from './common/Layout';
 import { useDispatch } from 'react-redux';
-import { getStation } from '../store/slices/fineDustSlice';
+import { setFavoriteItem, setStation } from '../store/slices/fineDustSlice';
+import { useLocation } from 'react-router-dom';
 
 function Card({ item }) {
 	const { setIsSelected } = useContext(SelectedIdContext);
 	const grade10 = gradeData[item.pm10Grade];
 	const grade25 = gradeData[item.pm25Grade];
 	const dispatch = useDispatch();
-
+	const { pathname } = useLocation();
 	const handleClick = () => {
-		dispatch(getStation(item.stationName));
+		if (pathname === '/favorites') {
+			dispatch(setFavoriteItem(item.stationName));
+		} else {
+			dispatch(setStation(item.stationName));
+		}
 		setIsSelected(true);
 	};
 	return (

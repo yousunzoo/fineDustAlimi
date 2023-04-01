@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	sidoData: [],
+	sidoArr: [],
 	stationData: {},
+	favoriteArr: [],
+	favoriteStationData: {},
 };
 
 const fineDustSlice = createSlice({
@@ -10,13 +12,24 @@ const fineDustSlice = createSlice({
 	initialState,
 	reducers: {
 		getSido: (state, action) => {
-			state.sidoData = [...action.payload];
+			state.sidoArr = [...action.payload];
 		},
-		getStation: (state, action) => {
-			state.stationData = state.sidoData.filter((item) => item.stationName === action.payload)[0];
+		setStation: (state, action) => {
+			state.stationData = state.sidoArr.filter((item) => item.stationName === action.payload)[0];
+		},
+		getFavorites: (state, action) => {
+			const { fetchedData, favoritesArr } = action.payload;
+			const favoriteData = favoritesArr.map((favorite) => {
+				const idx = fetchedData.findIndex((item) => item.stationName === favorite.stationName);
+				return fetchedData[idx];
+			});
+			state.favoriteArr = favoriteData;
+		},
+		setFavoriteItem: (state, action) => {
+			state.favoriteStationData = state.favoriteArr.filter((item) => item.stationName === action.payload)[0];
 		},
 	},
 });
 
-export const { getSido, getStation } = fineDustSlice.actions;
+export const { getSido, setStation, getFavorites, setFavoriteItem } = fineDustSlice.actions;
 export default fineDustSlice.reducer;

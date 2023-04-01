@@ -5,6 +5,7 @@ export const SelectContainer = styled.div`
 	width: 100%;
 	padding: 0 20px;
 	justify-content: space-between;
+	margin-bottom: 20px;
 	.select {
 		width: 48%;
 		height: 40px;

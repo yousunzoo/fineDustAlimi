@@ -3,13 +3,14 @@ import * as S from '../styles/Search';
 import Select from 'react-select';
 import { sidoData } from '../constants/sidoData';
 import { useGetSidoDataQuery } from '../store/apis/fineDustApi';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getSido } from '../store/slices/fineDustSlice';
 import Loader from '../components/common/Loader';
 import CardsContainer from '../components/CardsContainer';
 function All() {
 	const [sidoName, setSidoName] = useState(sidoData[0].value);
 	const { data, isLoading, isFetching } = useGetSidoDataQuery(sidoName);
+	const { sidoArr } = useSelector((state) => state.fineDust);
 	const dispatch = useDispatch();
 	const handleSelect = (e) => {
 		setSidoName(e.value);
@@ -25,7 +26,7 @@ function All() {
 			<S.SelectContainer>
 				<Select className='allSelect' defaultValue={sidoData[0]} options={sidoData} onChange={handleSelect} />
 			</S.SelectContainer>
-			{isLoading || isFetching ? <Loader /> : <CardsContainer />}
+			{isLoading || isFetching ? <Loader /> : <CardsContainer data={sidoArr} />}
 		</>
 	);
 }

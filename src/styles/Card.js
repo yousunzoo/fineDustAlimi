@@ -79,6 +79,7 @@ export const FineDustCard = styled.div`
 		align-items: center;
 		margin-top: 10px;
 		margin-bottom: 20px;
+		color: #3e3e3e;
 		.weatherIcon {
 			width: 60px;
 			height: 60px;

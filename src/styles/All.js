@@ -5,7 +5,6 @@ export const CardsContainer = styled.div`
 	padding: 20px;
 	width: 100%;
 	height: calc(100vh - 200px);
-	margin-top: 20px;
 	overflow-y: scroll;
 	display: flex;
 	flex-wrap: wrap;
