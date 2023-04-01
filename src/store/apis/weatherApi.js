@@ -13,6 +13,10 @@ export const weatherApi = createApi({
 	reducerPath: 'weatherApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: import.meta.env.VITE_WEATHER_URL,
+		prepareHeaders: (headers) => {
+			headers.set('accept', 'application/json, text/plain, */*');
+			return headers;
+		},
 	}),
 	endpoints: (builder) => ({
 		getWeather: builder.query({

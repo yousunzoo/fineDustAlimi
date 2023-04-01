@@ -13,6 +13,10 @@ export const fineDustApi = createApi({
 	reducerPath: 'fineDustApi',
 	baseQuery: fetchBaseQuery({
 		baseUrl: import.meta.env.VITE_DUST_URL,
+		prepareHeaders: (headers) => {
+			headers.set('accept', 'application/json, text/plain, */*');
+			return headers;
+		},
 	}),
 	endpoints: (builder) => ({
 		getStationData: builder.query({
