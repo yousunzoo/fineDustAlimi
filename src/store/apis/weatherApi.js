@@ -12,7 +12,7 @@ const setParams = (geolocation) => {
 export const weatherApi = createApi({
 	reducerPath: 'weatherApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'https://api.openweathermap.org/data/2.5/weather',
+		baseUrl: import.meta.env.VITE_WEATHER_URL,
 	}),
 	endpoints: (builder) => ({
 		getWeather: builder.query({

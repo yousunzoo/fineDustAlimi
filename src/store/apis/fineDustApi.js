@@ -12,7 +12,7 @@ const commonParams = {
 export const fineDustApi = createApi({
 	reducerPath: 'fineDustApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'http://apis.data.go.kr/B552584/ArpltnInforInqireSvc',
+		baseUrl: import.meta.env.VITE_DUST_URL,
 	}),
 	endpoints: (builder) => ({
 		getStationData: builder.query({

@@ -8,7 +8,7 @@ const commonParams = {
 export const stationApi = createApi({
 	reducerPath: 'stationApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: 'http://apis.data.go.kr/B552584/MsrstnInfoInqireSvc',
+		baseUrl: import.meta.env.VITE_DUST_URL,
 	}),
 	endpoints: (builder) => ({
 		getCoordinate: builder.query({
