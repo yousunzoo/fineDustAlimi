@@ -8,7 +8,7 @@ const commonParams = {
 export const stationApi = createApi({
 	reducerPath: 'stationApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: import.meta.env.VITE_STATION_URL,
+		baseUrl: '/api/MsrstnInfoInqireSvc',
 		prepareHeaders: (headers) => {
 			headers.set('accept', 'application/json, text/plain, */*');
 			return headers;

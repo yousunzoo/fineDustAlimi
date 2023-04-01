@@ -12,7 +12,7 @@ const setParams = (geolocation) => {
 export const weatherApi = createApi({
 	reducerPath: 'weatherApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: import.meta.env.VITE_WEATHER_URL,
+		baseUrl: '/weather/data/2.5/weather',
 		prepareHeaders: (headers) => {
 			headers.set('accept', 'application/json, text/plain, */*');
 			return headers;

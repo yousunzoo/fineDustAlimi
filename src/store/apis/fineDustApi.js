@@ -12,7 +12,7 @@ const commonParams = {
 export const fineDustApi = createApi({
 	reducerPath: 'fineDustApi',
 	baseQuery: fetchBaseQuery({
-		baseUrl: import.meta.env.VITE_DUST_URL,
+		baseUrl: '/api/ArpltnInforInqireSvc',
 		prepareHeaders: (headers) => {
 			headers.set('accept', 'application/json, text/plain, */*');
 			return headers;
