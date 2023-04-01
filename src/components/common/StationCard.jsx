@@ -12,7 +12,7 @@ function StationCard() {
 	const pm25grade = stationData.pm25Grade;
 
 	return (
-		<S.MyCard className='stationCard'>
+		<S.MyCard layoutId={stationData.stationName} className='stationCard'>
 			<S.MyLocation>
 				<button>
 					<FiMapPin />

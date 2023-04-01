@@ -10,7 +10,7 @@ export const CardsContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	.updateTime {
+	> .updateTime {
 		width: 100%;
 		text-align: center;
 		margin-bottom: 20px;
@@ -63,6 +63,29 @@ export const Card = styled(motion.div)`
 		font-size: 13px;
 		.grade {
 			color: ${({ theme }) => theme.grade25.color};
+		}
+	}
+`;
+
+export const Modal = styled(motion.div)`
+	position: absolute;
+	top: -60px;
+	left: 0;
+	width: 100%;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	.closeBtn {
+		display: block;
+		width: 50px;
+		height: 50px;
+		margin: auto;
+		margin-top: 30px;
+		svg {
+			width: 50px;
+			height: 50px;
+			path {
+				color: white;
+			}
 		}
 	}
 `;

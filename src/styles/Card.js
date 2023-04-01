@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 
-export const MyCard = styled.div`
+export const MyCard = styled(motion.div)`
 	position: relative;
 	width: 90%;
 	margin: auto;
@@ -109,6 +110,7 @@ export const FineDustCard = styled.div`
 			text-align: center;
 			.dataTitle {
 				margin-bottom: 10px;
+				color: #333;
 			}
 			.dataContents {
 				display: flex;
