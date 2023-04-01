@@ -1,4 +1,3 @@
-import { useQuery } from '@reduxjs/toolkit/query/react';
 import { useEffect, useState } from 'react';
 
 function useLocalStorageOrRTKQuery(query, storageKey) {

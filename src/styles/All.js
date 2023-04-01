@@ -24,25 +24,45 @@ export const Card = styled(motion.div)`
 	border-radius: 20px;
 	margin-bottom: 20px;
 	box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-	.sidoName {
-		margin-bottom: 6px;
+	background-color: ${({ theme }) => theme.grade10.background};
+	.infoWrapper {
+		display: flex;
+		align-items: flex-end;
+		margin-bottom: 40px;
+		.name {
+			flex: 1;
+			.sidoName {
+				margin-bottom: 6px;
+			}
+			.stationName {
+				font-size: 18px;
+			}
+		}
+		.emoji {
+			width: 80px;
+			height: 80px;
+		}
 	}
-	.stationName {
-		font-size: 18px;
-		margin-bottom: 28px;
+	p {
+		font-size: 13px;
+		.grade {
+			font-size: 16px;
+			font-weight: 600;
+			margin-bottom: 24px;
+		}
 	}
-	.grade {
-		font-size: 40px;
-		font-weight: 600;
-		text-align: center;
-		color: inherit;
-		margin-bottom: 24px;
-	}
+
 	.pm10Value {
 		font-size: 13px;
 		margin-bottom: 6px;
+		.grade {
+			color: ${({ theme }) => theme.grade10.color};
+		}
 	}
 	.pm25Value {
 		font-size: 13px;
+		.grade {
+			color: ${({ theme }) => theme.grade25.color};
+		}
 	}
 `;
