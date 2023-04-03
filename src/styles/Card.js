@@ -60,9 +60,14 @@ export const FineDustCard = styled.div`
 	color: ${({ style }) => style.color};
 	.bookmark {
 		position: absolute;
+		display: block;
 		top: 20px;
 		right: 30px;
 		font-size: 60px;
+		width: 60px;
+		height: 60px;
+		padding: 0;
+		color: #403f3d;
 		path {
 			color: #403f3d;
 		}
