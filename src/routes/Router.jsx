@@ -5,6 +5,7 @@ import All from '../pages/All';
 import Favorites from '../pages/Favorites';
 import Home from '../pages/Home';
 import Search from '../pages/Search';
+import NotFound from '../pages/NotFound';
 
 function Router() {
 	return (
@@ -15,6 +16,7 @@ function Router() {
 					<Route path='/search' element={<Search />} />
 					<Route path='/all' element={<All />} />
 					<Route path='/favorites' element={<Favorites />} />
+					<Route path='*' element={<NotFound />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>
