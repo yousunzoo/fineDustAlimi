@@ -138,3 +138,14 @@ main {
 	height: 100%;
 	position: relative;
 }
+
+input,
+textarea,
+button {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: 0;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+}
